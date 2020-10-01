@@ -51,7 +51,7 @@ PS = pubsub_v1.PublisherClient()
 BQ = bigquery.Client()
 
 
-def streaming(data, context):
+def streaming_notifications(data, context):
     '''This function is executed whenever a file is added to Cloud Storage
     checking if a file with the same filename is present in the Firestore DB 
     and it has already been processed'''
