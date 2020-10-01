@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Date",
+        "type": "DATE",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Notification_ID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Lang",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Count",
+        "type": "INTEGER",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "Page_ID",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    },
+    {
+        "name": "type",
+        "type": "STRING",
+        "mode": "NULLABLE"
+    }
+]
