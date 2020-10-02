@@ -1,0 +1,20 @@
+### Cloud Shell commands ###
+
+REGION=us-east1
+FUNCTION=streaming-notifications2
+ENTRY_POINT=streaming_notifications2
+FILES_SOURCE=gucci-app-notifications-v2
+FUNCTIONS_BUCKET=${FUNCTION}-staging-$(date +%s)
+
+# Make bucket function staging 
+gsutil mb -c regional -l ${REGION} gs://${FUNCTIONS_BUCKET}
+
+# cloud function deploy
+gcloud functions deploy ${ENTRY_POINT} --region=${REGION} \
+    --source=./functions/streaming --runtime=python37 \
+    --stage-bucket=${FUNCTIONS_BUCKET} \
+    --trigger-bucket=${FILES_SOURCE}
+
+# verify deployment
+gcloud functions describe ${ENTRY_POINT}  --region=${REGION} \
+    --format="table[box](entryPoint, status, eventTrigger.eventType)"
